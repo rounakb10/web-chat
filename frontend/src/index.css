@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--transition: 0.3s ease-in-out all;
+		--quick-transition: 0.2s ease-in-out all;
+	}
+
+	[data-theme="light"] {
+		/* --bg: #fef6e4;
+		--surface: #f3d2c1;
+		--text: #172c66;
+		--buttontext: #172c66;
+		--grey: #d4b2a0;
+		--lightgrey: #f6e3d9;
+		--primary: #8bd3dd;
+		--accent: #a9bbbf;
+		--red: #ff6b6b;
+		--green: #69db7c; */
+		--bg: #f8f9fa;
+		--surface: #e3fdfd;
+		--text: #252a34;
+		--buttontext: #252a34;
+		--grey: #cbf1f5;
+		--lightgrey: #e3fdfd;
+		--primary: #15aabf;
+		--accent: #71c9ce;
+		--red: #ff6b6b;
+		--green: #69db7c;
+
+		--background: linear-gradient(
+			-45deg,
+			rgb(255, 176, 205) 0%,
+			rgb(233, 176, 255) 25%,
+			rgb(188, 199, 253) 51%,
+			rgb(150, 210, 237) 100%
+		);
+	}
+
+	[data-theme="dark"] {
+		--bg: #16161a;
+		--surface: #121212;
+		--text: #bdc6d1;
+		--buttontext: #16161a;
+		--lightgrey: #2e3033;
+		--grey: rgba(107, 117, 122, 0.212);
+		--primary: rgb(21, 170, 191);
+		--accent: #0b7285;
+		--red: #fa5252;
+		--green: #40c057;
+
+		--background: linear-gradient(
+			-45deg,
+			rgb(40, 167, 225) 0%,
+			rgb(61, 81, 182) 25%,
+			rgb(113, 41, 139) 51%,
+			rgb(182, 44, 95) 100%
+		);
+	}
+
+	* {
+		/* transition: var(--transition); */
+		/* rgba(59, 173, 227, 1) 0%,
+			rgba(87, 111, 230, 1) 25%,
+			rgba(152, 68, 183, 1) 51%,
+			rgba(255, 53, 127, 1) 100% */
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.bg {
+		/* width: 100%; */
+		/* height: 100vh; */
+		/* display: flex; */
+		/* align-items: center; */
+		/* justify-content: center; */
+		background-size: 300% 300%;
+		background-image: var(--background);
+		animation: AnimateBG 20s ease infinite;
+	}
+
+	@keyframes AnimateBG {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	body {
+		/* transition: var(--transition); */
+		/* animation: bg-color 10s infinite; */
+		/* background-image: url("./assets/bg-3.jpg"); */
+		/* background-repeat: no-repeat; */
+		/* background-position: center; */
+		/* background-size: cover; */
+		/* overflow: hidden; */
+		user-select: none;
+		background-color: theme("colors.bg");
+		color: theme("colors.text");
+		font-family: "Inter", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		background-size: 300% 300%;
+		background-image: var(--background);
+		animation: AnimateBG 20s ease infinite;
+	}
+}
+
+@layer utilities {
+	/* .default-transition {
+		transition: var(--transition);
+		-webkit-transition: -webkit-transition 0.3s ease-in-out;
+	}
+	.quick-transition {
+		transition: var(--quick-transition);
+	}
+	.width-transition {
+		transition-property: width;
+		transition-timing-function: linear;
+		transition-duration: 150ms;
+	}
+	.quick-width-transition {
+		transition-property: width;
+		transition-timing-function: linear;
+		transition-duration: 100ms;
+	} */
+}
