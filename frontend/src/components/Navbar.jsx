@@ -9,7 +9,7 @@ function Navbar() {
 				isChatOpen && "hidden md:flex"
 			} justify-between items-center w-full h-16 px-2 sm:px-4 select-none`}
 		>
-			<h1 className={`capitalize text-2xl md:text-3xl`}>chatify</h1>
+			<h1 className={`capitalize text-2xl md:text-3xl`}>chatly</h1>
 
 			<motion.button
 				onClick={toggleProfileModal}

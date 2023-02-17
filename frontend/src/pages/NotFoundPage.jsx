@@ -12,7 +12,10 @@ function NotFoundPage() {
 			<p className='text-xl text-center'>
 				We can't seem to find the page you're looking for
 			</p>
-			<Link to='/' className='text-neutral-700 hover:text-neutral-500'>
+			<Link
+				to='/'
+				className='text-neutral-700 dark:text-neutral-200 hover:text-neutral-500 dark:hover:text-neutral-300'
+			>
 				Back Home
 			</Link>
 		</div>

@@ -3,10 +3,13 @@ const app = express()
 require("dotenv").config()
 
 require("express-async-errors")
+/*
+Production
 const helmet = require("helmet")
 const xss = require("xss-clean")
 const mongoSanitize = require("express-mongo-sanitize")
-
+const path = require("path") 
+*/
 const connectDB = require("./db/connect")
 
 //middleware
@@ -20,15 +23,25 @@ const messageRouter = require("./routers/messageRouter")
 
 app.use(express.json())
 
-app.use(helmet())
+/*
+Production
+app.use(express.static(path.resolve(__dirname, "../frontend/dist")))
+// app.use(helmet())
+// helmet --> Refused to load the image '<URL>' because it violates the following Content Security Policy directive: "img-src 'self' data:".
 app.use(xss())
 app.use(mongoSanitize())
+*/
 
 app.use("/api/auth", authRouter)
 app.use("/api/chat", authenticateUser, chatRouter)
 app.use("/api/message", authenticateUser, messageRouter)
-// app.use('/api/chats', chatRouter)
 
+/*
+Production
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"))
+})
+*/
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 

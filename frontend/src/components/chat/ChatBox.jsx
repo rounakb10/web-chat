@@ -19,7 +19,6 @@ function ChatBox() {
 		user,
 		toggleGroupModal,
 		sendMessage,
-		messages,
 		addMessage,
 		fetchChats,
 	} = useAppContext()
