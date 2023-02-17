@@ -21,8 +21,10 @@ const authenticateUser = require("../middleware/auth.js")
 var multer = require("multer")
 var upload = multer()
 
-router.route("/upload_image").post(upload.single("image"), uploadImage)
-router.route("/register").post(register)
+router
+	.route("/upload_image")
+	.post(apiLimiter, upload.single("image"), uploadImage)
+router.route("/register").post(apiLimiter, register)
 router.route("/login").post(login)
 router.route("/update_user").patch(authenticateUser, updateUser)
 router.route("/").get(authenticateUser, getUsers)
