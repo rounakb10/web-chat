@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import ChatPage from "./pages/ChatPage"
 import ProtectedRoute from "./pages/ProtectedRoute"
+import NotFoundPage from "./pages/NotFoundPage"
 
 function App() {
 	return (
@@ -24,7 +25,9 @@ function App() {
 						</ProtectedRoute>
 					}
 				/>
+
 				<Route path='/login' element={<HomePage />} />
+				<Route path='/*' element={<NotFoundPage />} />
 			</Routes>
 		</BrowserRouter>
 	)

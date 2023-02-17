@@ -3,30 +3,26 @@ const app = express()
 require("dotenv").config()
 
 require("express-async-errors")
+const helmet = require("helmet")
+const xss = require("xss-clean")
+const mongoSanitize = require("express-mongo-sanitize")
 
-// const { chats } = require("./data/data")
 const connectDB = require("./db/connect")
-
-app.use(express.json())
 
 //middleware
 const errorHandlerMiddleware = require("./middleware/error-handler")
 const notFoundMiddleware = require("./middleware/not-found")
 const authenticateUser = require("./middleware/auth")
 
-// app.get("/api/chat", (req, res) => {
-// 	console.log(chats)
-// 	res.json(chats)
-// })
-
-// app.get("/api/chat/:id", (req, res) => {
-// 	const singleChat = chats.find((chat) => chat._id === req.params.id)
-// 	res.json(singleChat)
-// })
-
 const authRouter = require("./routers/authRouter")
 const chatRouter = require("./routers/chatRouter")
 const messageRouter = require("./routers/messageRouter")
+
+app.use(express.json())
+
+app.use(helmet())
+app.use(xss())
+app.use(mongoSanitize())
 
 app.use("/api/auth", authRouter)
 app.use("/api/chat", authenticateUser, chatRouter)

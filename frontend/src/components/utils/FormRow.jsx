@@ -39,7 +39,7 @@ function FormRow({
 							: labelText || name
 					}`
 				}
-				className='px-3 py-2 bg-indigo-300/20 autofill:bg-indigo-300/20 dark:bg-indigo-300/10 rounded-lg border-2 border-black/10 dark:border-white/10 placeholder:text-indigo-300/50 placeholder:dark:text-indigo-200/20 file:bg-bg file:text-text file:rounded-md file:shadow-sm file:border-none file:px-2 file:py-1 file:mr-3 file:cursor-pointer'
+				className='px-3 py-2 bg-indigo-100/20 autofill:bg-indigo-100/20 dark:bg-indigo-300/10 rounded-lg border-2 border-black/10 dark:border-white/10 placeholder:text-indigo-300/50 placeholder:dark:text-indigo-200/20 file:bg-bg file:text-text file:rounded-md file:shadow-sm file:border-none file:px-2 file:py-1 file:mr-3 file:cursor-pointer'
 			/>
 		</div>
 	)
